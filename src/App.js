@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Importa BrowserRouter, Routes y Route
+
+
+
+import Menu from './components/menu'; // Asegúrate de que menu.js esté dentro de la carpeta 'components'
+import RegistroUsuario from './components/RegistroUsuario'; // Asegúrate de que RegistroUsuario.js esté dentro de la carpeta 'components'
+import InicioSesionUsuario from './components/InicioSesionUsuario'; // Asegúrate de que InicioSesionUsuario.js esté dentro de la carpeta 'components'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+             <div className="App">
+        <Menu />
+        <div>
+          <Route path="/registro" component={RegistroUsuario} />
+          <Route path="/inicio-sesion" component={InicioSesionUsuario} />
+        </div>
+      </div>
+      </Routes>
+ 
+    </Router>
+    
   );
 }
 
 export default App;
+
